@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://b5k2wefdotcy1"]
+
+[ext_resource type="Script" uid="uid://cr755h01vgyps" path="res://objects/hurtbox.gd" id="1_emoun"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tlfi0"]
+size = Vector3(0.425, 1.6, 0.71)
+
+[node name="Hurtbox" type="Area3D"]
+disable_mode = 2
+script = ExtResource("1_emoun")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.15, 0)
+shape = SubResource("BoxShape3D_tlfi0")
+debug_color = Color(0.975114, 0, 0.421808, 0.42)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
