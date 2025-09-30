@@ -27,6 +27,8 @@ var hurt_timer := false
 @onready var model = $Character
 @onready var animation = $Character/AnimationPlayer
 
+var hurtbox_scene: PackedScene = preload("res://objects/hurtbox.tscn")
+
 # Functions
 
 func _physics_process(delta):
@@ -37,6 +39,8 @@ func _physics_process(delta):
 	handle_gravity(delta)
 
 	handle_effects(delta)
+
+	handle_moves()
 
 	# Movement
 
@@ -176,3 +180,26 @@ func get_hurt(damage, hurtbox_faction: int):
 func die():
 	Audio.play("res://sounds/fallbig.ogg")
 	queue_free()
+
+# Attack 
+
+func handle_moves():
+	var aggro_target = get_tree().get_first_node_in_group("player")
+
+	if aggro_target:
+		var direction = (aggro_target.global_transform.origin - global_transform.origin)
+		if direction.length() < 1:
+			var hurtbox_instance = hurtbox_scene.instantiate()
+
+			hurtbox_instance.damage = 1
+			hurtbox_instance.faction = 0
+			hurtbox_instance.lifetime = 0.1
+
+			hurtbox_instance.transform = Transform3D(Basis().rotated(Vector3.UP, PI/2), Vector3(0,0.5,1))
+
+			add_child(hurtbox_instance)
+		else:
+			pass
+	else:
+		pass
+		

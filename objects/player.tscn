@@ -1,11 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://dl2ed4gkybggf"]
+[gd_scene load_steps=11 format=3 uid="uid://dl2ed4gkybggf"]
 
 [ext_resource type="Script" uid="uid://br1k30d32naot" path="res://scripts/player.gd" id="1_ffboj"]
 [ext_resource type="PackedScene" uid="uid://c0e27836xgmhi" path="res://objects/character.tscn" id="2_nero3"]
 [ext_resource type="Texture2D" uid="uid://8ggihh27mlrr" path="res://sprites/blob_shadow.png" id="3_0c7wt"]
 [ext_resource type="ArrayMesh" uid="uid://deu06eho4c74" path="res://meshes/dust.res" id="4_mvhqy"]
 [ext_resource type="AudioStream" uid="uid://cydjn1ct3hps2" path="res://sounds/walking.ogg" id="5_ics1s"]
-[ext_resource type="PackedScene" uid="uid://b5k2wefdotcy1" path="res://objects/hurtbox.tscn" id="6_3rerk"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gdq8c"]
 radius = 0.3
@@ -66,9 +65,5 @@ stream = ExtResource("5_ics1s")
 volume_db = -5.0
 pitch_scale = 1.25
 autoplay = true
-
-[node name="Hurtbox" parent="." instance=ExtResource("6_3rerk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.596959, 0.682616)
-faction = 1
 
 [editable path="Character"]

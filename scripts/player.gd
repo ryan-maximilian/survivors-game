@@ -32,6 +32,8 @@ var hurt_timer := false
 @onready var model = $Character
 @onready var animation = $Character/AnimationPlayer
 
+var hurtbox_scene: PackedScene = preload("res://objects/hurtbox.tscn")
+
 # Functions
 
 func _physics_process(delta):
@@ -42,6 +44,8 @@ func _physics_process(delta):
 	handle_gravity(delta)
 
 	handle_effects(delta)
+
+	handle_moves()
 
 	# Movement
 
@@ -199,8 +203,16 @@ func die():
 	Audio.play("res://sounds/fallbig.ogg")
 	get_tree().reload_current_scene()
 
-# Primary attack
+# Attacks, moves, skills etc
 
-func use_primary_attack():
-	if Input.is_action_just_pressed("jump"):
-		pass
+func handle_moves():
+	if Input.is_action_just_pressed("primary_attack"):
+		var hurtbox_instance = hurtbox_scene.instantiate()
+
+		hurtbox_instance.damage = 100
+		hurtbox_instance.faction = 1
+		hurtbox_instance.lifetime = 0.1
+
+		hurtbox_instance.transform = Transform3D(Basis().rotated(Vector3.UP, PI/2), Vector3(0,0.5,1))
+
+		add_child(hurtbox_instance)
