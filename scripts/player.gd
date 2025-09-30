@@ -20,9 +20,12 @@ var jump_single = true
 var jump_double = true
 
 var coins = 0
-var health = 10
 
+var health = 10
 var hurt_timer := false
+
+@export_subgroup("Faction")
+@export var faction: int = 1 ## Faction controls which hurtboxes affect the player.
 
 @onready var particles_trail = $ParticlesTrail
 @onready var sound_footsteps = $SoundFootsteps
@@ -168,22 +171,27 @@ func collect_coin():
 
 # Hurt
 
-func get_hurt(damage):
+func get_hurt(damage, hurtbox_faction: int):
 
-	health -= damage
+	if faction != hurtbox_faction:
 
-	health_changed.emit(health)
-	print(health)
+		health -= damage
 
-	hurt_timer = true
+		health_changed.emit(health)
+		print(health)
 
-	Audio.play("res://sounds/hit3.ogg")
+		hurt_timer = true
 
-	if health > 0:
-		await get_tree().create_timer(1).timeout # time is in seconds
-		hurt_timer = false
+		Audio.play("res://sounds/hit3.ogg")
+
+		if health > 0:
+			await get_tree().create_timer(1).timeout # time is in seconds
+			hurt_timer = false
+		else:
+			die()
+	
 	else:
-		die()
+		pass
 
 # Death logic
 

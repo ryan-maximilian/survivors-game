@@ -259,41 +259,17 @@ offset_bottom = 138.0
 text = "Press LMB to attack"
 label_settings = SubResource("LabelSettings_muem4")
 
-[node name="Enemy7" parent="." instance=ExtResource("16_jbj1t")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37.2058, -5.90857, -10.6637)
-
-[node name="Enemy8" parent="." instance=ExtResource("16_jbj1t")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.865, -5.63817, -16.7622)
-
-[node name="Enemy9" parent="." instance=ExtResource("16_jbj1t")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.9019, -6.22683, -8.25325)
-
-[node name="Enemy10" parent="." instance=ExtResource("16_jbj1t")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.561, -5.95643, -14.3517)
+[node name="Enemy12" parent="." instance=ExtResource("16_jbj1t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -41.1958, -9.05242, -11.6855)
 
 [node name="Enemy11" parent="." instance=ExtResource("16_jbj1t")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.5979, -4.52621, -5.84277)
 
-[node name="Enemy12" parent="." instance=ExtResource("16_jbj1t")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.2571, -4.25582, -11.9412)
+[node name="Enemy13" parent="." instance=ExtResource("16_jbj1t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -41.1958, -9.05242, -7.5417)
 
-[node name="Enemy3" parent="." instance=ExtResource("16_jbj1t")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.2525, -4.80726, -1.13299)
-
-[node name="Enemy4" parent="." instance=ExtResource("16_jbj1t")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.9117, -4.53686, -7.23144)
-
-[node name="Enemy5" parent="." instance=ExtResource("16_jbj1t")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.9486, -8.21059, 1.27749)
-
-[node name="Enemy6" parent="." instance=ExtResource("16_jbj1t")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.6078, -7.94019, -4.82096)
-
-[node name="Enemy" parent="." instance=ExtResource("16_jbj1t")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.64472, -8.43927, 3.68797)
-
-[node name="Enemy2" parent="." instance=ExtResource("16_jbj1t")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.30391, -8.16887, -2.41048)
+[node name="Enemy14" parent="." instance=ExtResource("16_jbj1t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.5979, -4.52621, -1.69893)
 
 [connection signal="coin_collected" from="Player" to="HUD" method="_on_coin_collected"]
 [connection signal="health_changed" from="Player" to="HUD" method="_on_health_changed"]
